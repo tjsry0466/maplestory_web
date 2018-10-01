@@ -1,0 +1,305 @@
+<!-- 서브 컨텐츠 -->
+<section>
+    <div class="scontent">
+        <!-- 새소식 -->
+        <div class="news">
+            <p class="title">
+                    <img src="{% static '/Images/Main/h_news.png' %}" alt="새소식"/>
+
+            </p>
+            <!-- 탭 메뉴 -->
+            <ul class="news_tab">
+                <li class="selected" id="news_tab_0">
+                    <a href="#tab1">공지사항</a><span>|</span>
+                </li>
+                <li id="news_tab_1">
+                    <a href="#tab2">업데이트</a><span>|</span>
+                </li>
+                <li id="news_tab_2">
+                    <a href="#tab3">이벤트</a>
+                </li>
+            </ul>
+            <!-- //탭 메뉴 -->
+            <!-- 탭 리스트 -->
+            <ul class="news_tabcon">
+                <!-- li 스타일에 show가 붙어 있을 경우에만 출력 한다. -->
+                <li id="news_1" class="show">
+                    <article>
+                        <dl class="list_n">
+                                <dd>
+        <strong>
+                    <a href="/Board/notice/74--2%EC%84%B1-%EC%9E%A5%EB%B9%84%EA%B0%95%ED%99%94-%EC%A3%BC%EB%AC%B8%EC%84%9C-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C">&lt;2성 장비강화 주문서&gt;에 관해서 </a>
+
+        </strong>
+    </dd>
+    <dd>
+                <a href="/Board/notice/73--%EB%8F%84%EC%A0%84-%EB%AA%A8%ED%97%98%EA%B0%80-%EB%A0%88%EB%B2%A8-%ED%80%98%EC%8A%A4%ED%8A%B8-%EA%B4%80%EB%A0%A8">&lt;도전! 모험가 레벨!&gt;퀘스트 관련 </a>
+
+    </dd>
+                        </dl>
+                    </article>
+                </li>
+                <li id="news_2">
+                    <article>
+                        <dl class="list_n">
+                                <dd>
+        <strong>
+                    <a href="/Board/maintenance/22-2018%EB%85%84-08%EC%9B%94-03%EC%9D%BC-Ver-23-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%95%88%EB%82%B4-%EC%99%84%EB%A3%8C-">2018년 08월 03일 Ver.23 업데이트 안내 (완료) </a>
+
+        </strong>
+    </dd>
+    <dd>
+                <a href="/Board/maintenance/20-2018%EB%85%84-07%EC%9B%94-16%EC%9D%BC-Ver-22-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%95%88%EB%82%B4-%EC%99%84%EB%A3%8C-">2018년 07월 16일 Ver.22 업데이트 안내 (완료) </a>
+
+    </dd>
+                        </dl>
+                    </article>
+                </li>
+                <li id="news_3">
+                    <article>
+                        <dl class="list_n">
+                                <dd>
+        <strong>
+                    <a href="/Board/event/8-%ED%9B%84%EC%9B%90-50-%EC%B6%94%EA%B0%80-%EB%B3%B4%EC%83%81-%EC%9D%B4%EB%B2%A4%ED%8A%B8">후원 50% 추가 보상 이벤트 </a>
+
+        </strong>
+    </dd>
+    <dd>
+                <a href="/Board/event/7-%ED%95%AB%ED%83%80%EC%9E%84-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%9D%BC%EC%A0%95">핫타임 이벤트 일정 </a>
+
+    </dd>
+                        </dl>
+                    </article>
+                </li>
+            </ul>
+            <!-- //탭 리스트 -->
+        </div>
+        <!-- //새소식 -->
+        <!-- 베스트 정보 -->
+        <div class="best">
+            <p class="title">
+                    <img src="{% static '/Images/Main/h_best.png' %}" alt="베스트 정보"/>
+                <span>2018.02.08</span>
+            </p>
+            <!-- 베스트 게시물 배너 -->
+            <article>
+                <dl class="thumb">
+                    <dt>
+                        <a href="http://sol9.tistory.com/1">
+                            <img src="{% static '/banners/131625573279530502_m2.PNG' %}" />
+                        </a>
+                    </dt>
+                    <dd>
+                        <p class="stitle">
+                            <strong>
+                                <a href="http://sol9.tistory.com/1">마일리지란?</a>
+                            </strong>
+                        </p>
+                        <p class="txt">아르테일의 마일리지가 무엇인지 깔끔한 설명과 얻는 법을 정리해봤습니다.</p>
+                        <p class="user">
+                            <img src="{% static '/Images/Main/icon/world/ico_world_scania.png' %}" />
+                            솔구
+                        </p>
+                    </dd>
+                </dl>
+                <!-- //베스트 게시물 배너 -->
+                <!-- 베스트 게시물-->
+                <ul class="best_con">
+                    <li>
+                        <dl>
+                            <dd>
+                                <p class="stitle">
+                                    <a href="http://sol9.tistory.com/10">1.2.98의 잠재능력에 대한 모든것</a>
+                                </p>
+                                <p class="user">
+                                    <img src="{% static '/Images/Main/icon/world/ico_world_scania.png' %}" />
+                                    솔구
+                                </p>
+                            </dd>
+
+                        </dl>
+                    </li>
+                </ul>
+            </article>
+            <!-- //베스트 게시물 -->
+        </div>
+        <!-- //베스트 정보 -->
+        <!-- 지식소 -->
+        <div class="kin">
+            <article>
+                <p class="title">
+                    <img src="{% static '/Images/Main/h_kin.png' %}" alt="지식소"/>
+                </p>
+                <!-- 질문 게시판 최근 게시물 -->
+                <ul class="kin_con">
+                    <li>
+                        <dl>
+                                <dd>
+            <p class="stitle">
+            <a href="/Board/qna/193-%ED%81%90%EB%B8%8C-%EB%93%9C%EB%9E%8D-%EC%A7%88%EB%AC%B8%EC%9D%B4%EC%9A%94">큐브 드랍 질문이요 </a>
+    </p>
+    <p class="date">
+2018.08.31    </p>
+
+    </dd>
+
+
+                        </dl>
+                    </li>
+                </ul>
+                <!-- //질문 게시판 최근 게시물 -->
+            </article>
+        </div>
+        <!-- //지식소 -->
+        <!-- 자유 게시판 -->
+        <div class="free">
+            <article>
+                <p class="title">
+                    <img src="{% static '/Images/Main/h_free.png' %}" alt="자유게시판"/>
+                </p>
+                <!-- 자유 게시판 최근 게시물 -->
+                <ul class="free_con">
+                    <li>
+                        <dl>
+                                <dd>
+            <p class="stitle">
+            <a href="/Board/commu/2262-%EC%95%85%EC%84%B8%EC%84%9C%EB%A6%AC%ED%9E%98-100%ED%8D%BC-%EB%B0%A9%EC%96%B4%EA%B5%AC%ED%9E%98-100%ED%8D%BC-%EC%82%BD%EB%8B%88%EB%8B%A4-">악세서리힘 100퍼, 방어구힘 100퍼 삽니다./ </a>
+    </p>
+    <p class="date">
+2018.08.31    </p>
+
+    </dd>
+
+
+                        </dl>
+                    </li>
+                </ul>
+                <!-- //자유 게시판 최근 게시물 -->
+            </article>
+        </div>
+        <!-- //자유 게시판 -->
+        <!-- UCC -->
+        <div class="ucc">
+            <p class="title">
+                <img src="{% static '/Images/Main/h_ucc.png' %}" alt="UCC"/>
+            </p>
+            <!-- 탭 메뉴 -->
+            <ul class="ucc_tab">
+                <li class="selected">
+                    <a href="#tab1">스크린샷</a><span>|</span>
+                </li>
+                <li>
+                    <a href="#tab2">동영상</a><span>|</span>
+                </li>
+                <li>
+                    <a href="#tab3">팬아트</a>
+                </li>
+            </ul>
+            <!-- //탭 메뉴 -->
+            <!-- 탭 리스트 -->
+            <ul class="ucc_tabcon">
+                <!-- li 스타일에 show가 붙어 있을 경우에만 출력 한다. -->
+                <li class="show">
+                    <article>
+                        <dl>
+                                <dd>
+            <p class="img">
+        <a href="/Board/screenshot/220-%EC%95%84%EB%A5%B4%ED%85%8C%EC%9D%BC-%EB%9F%AC%EB%B2%84-">
+                    <img src="{% static '/imgcache/f019438bf2ae77c03a9b5c438d84d8b7d1ac3229.jpg" style="width: 240px; height: 118px;" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="/Board/screenshot/220-%EC%95%84%EB%A5%B4%ED%85%8C%EC%9D%BC-%EB%9F%AC%EB%B2%84-">
+            아르테일 러버 
+        </a>
+    </p>
+
+    </dd>
+    
+
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <dl>
+    <dd>
+            <p class="img">
+        <a href="/Board/video/29-%ED%8C%A8%EC%B9%98-%ED%9B%84-%EB%B0%B1%ED%99%94%EC%9A%94%EB%9E%80-%EA%B8%B8%EB%93%9C-%ED%98%BC%ED%85%8C%EC%9D%BC-">
+                    <img src="{% static '//img.youtube.com/vi/RlZiza18zZg/0.jpg' %}" style="width: 240px; height: 118px;" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="/Board/video/29-%ED%8C%A8%EC%B9%98-%ED%9B%84-%EB%B0%B1%ED%99%94%EC%9A%94%EB%9E%80-%EA%B8%B8%EB%93%9C-%ED%98%BC%ED%85%8C%EC%9D%BC-">
+            패치 후 백화요란 길드 혼테일 
+        </a>
+    </p>
+
+        </dd>
+
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <dl>
+                                <dd>
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+    <dd>
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+    <dd class="end">
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+
+                        </dl>
+                    </article>
+                </li>
+            </ul>
+            <!-- //탭 리스트 -->
+        </div>
+        <!-- //UCC -->
+    </div>
+</section>
+<!-- //서브 컨텐츠 -->

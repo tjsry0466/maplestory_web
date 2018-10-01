@@ -1,0 +1,181 @@
+{% extends 'accounts/layout.html' %}
+{% load static %}
+
+{% block content %}
+<!-- 메인 컨텐츠 -->
+
+<div class="mypage">
+<h2 class="title">
+<img src="{% static '/Images/Board/title/ct_mypage.png' %}" />
+</h2>
+<ul class="his_nav">
+<li class="bu">홈</li>
+<li>
+    <strong>마이페이지</strong>
+</li>
+</ul>
+<div class="mypage_content">
+<dl class="info">
+    <dt class="title">대표 캐릭터 설정</dt>
+    <dd>
+        <ul>
+            <li>
+                <span class="dot"></span>
+                계정의 대표 캐릭터를 설정합니다.
+            </li>
+            <li>
+                <span class="dot"></span>
+                Lv. 10 이상의 캐릭터만 설정할 수 있습니다.
+            </li>
+        </ul>
+    </dd>
+</dl>
+<div class="sec_buttons">
+    <button class="button_s1" id="changemaster">대표 캐릭터 설정</button>
+</div>
+<dl class="info">
+    <dt class="title">2차 비밀번호 초기화</dt>
+    <dd>
+        <ul>
+            <li>
+                <span class="dot"></span>
+                2차 비밀번호를 잊어버리셨다면 다시 설정 할 수 있습니다.
+            </li>
+        </ul>
+    </dd>
+</dl>
+<div class="sec_buttons">
+    <button class="button_s1" id="reset2ndpw">2차 비밀번호 초기화</button>
+</div>
+<dl class="info">
+    <dt class="title">계정 비밀번호 변경</dt>
+    <dd>
+        <ul>
+            <li>
+                <span class="dot"></span>
+                보안을 위해 주기적으로 계정 비밀번호를 변경하는것을 권장합니다.
+            </li>
+        </ul>
+    </dd>
+</dl>
+<form action="/Member/ChangePassword" method="post"><input name="__RequestVerificationToken" type="hidden" value="PHVB8k50Dj6JiUOFB1qvyPHZiI8Jlae7M7olpTdLd_3BgxkJSFHEGAJ5FAaJKk8WtdzGGi3Ukf-adXms3fVpzQO2LpjSTommPDmMgAYBmtY1" />            <div class="change_pass">
+        <table cellspacing="0" border="0">
+            <tr>
+                <td class="title">
+                    현재 비밀번호
+                </td>
+                <td class="value"><input type="password" name="old_pass" id="old_pass" /></td>
+            </tr>
+            <tr>
+                <td class="title">
+                    새 비밀번호
+                </td>
+                <td class="value"><input type="password" name="new_pass" id="new_pass" /></td>
+            </tr>
+            <tr class="no_border">
+                <td class="title">
+                    새 비밀번호 확인
+                </td>
+                <td class="value"><input type="password" name="new_pass_re" id="new_pass_re" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="buttons">
+        <div>
+            <button type="submit" class="button_s1">변경하기</button>
+        </div>
+    </div>
+</form>        <dl class="info">
+    <dt class="title">이메일 주소 변경</dt>
+    <dd>
+        <ul>
+            <li>
+                <span class="dot"></span>
+                항상 인증할 수 있는 이메일 주소로 유지하는 것을 권장합니다.
+            </li>
+                <li>
+                    <span class="dot"></span>
+                    이메일 주소를 변경하기 위해서 먼저 기존 이메일을 초기화 해야 합니다.
+                </li>
+                <li>
+                    <span class="dot"></span>
+                    기존 이메일 주소를 초기화하면 새로운 이메일 주소를 등록 설정 하기 전까지 게임 이용과 웹사이트 이용이 제한됩니다.
+                </li>
+        </ul>
+    </dd>
+</dl>
+<form action="/Member/ChangeEmail" method="post"><input name="__RequestVerificationToken" type="hidden" value="ekPkW-NgjBGBVCZLHD-pql8Gt1eaUbRE0JCZrSOwyJEvItQFi6SAUvoyVMMMj2AiNnKmEVE8Md1uMZ4Ctxqre0haZyWcY06y9LGK1cRPXJI1" />            <div class="change_email">
+        <table cellspacing="0" border="0">
+            <tr>
+                <td class="title">
+                    이메일 주소
+                </td>
+                    <td class="value"><input type="text" name="email" id="email" value="suni_l@naver.com" readonly disabled="disabled" /></td>
+                
+                
+                <!--<td class="value2"><input type="button" class="button_s3" onClick="javascript:alert('ddd');" value="인증번호 발송"/></td>-->
+            </tr>
+        </table>
+    </div>
+    <div class="buttons">
+        <div>
+            <button type="submit" class="button_s1">이메일 초기화</button>
+        </div>
+    </div>
+</form>        <dl class="info">
+    <dt class="title">인증번호 변경</dt>
+    <dd>
+        <ul>
+            <li>
+                <span class="dot"></span>
+                인증번호 7자리는 게임 내에서 주민등록번호 뒷자리 대신 본인인증 용도로 사용됩니다.
+            </li>
+        </ul>
+    </dd>
+</dl>
+<form action="/Member/ChangeSSN2" method="post"><input name="__RequestVerificationToken" type="hidden" value="Org2Apxsx_bS_LRQMnIZPxrBSDyiWnDeiQ67g1gelMuTmh-wQbilu7BPbyTnw9rh3SevG5Jf2fyXgwYtfneg5AbKC2sGSeAHpCb8VcMuLhI1" />            <div class="change_auth_code">
+        <table cellspacing="0" border="0">
+            <tr>
+                <td class="title">
+                    새 인증번호
+                </td>
+                <td class="value"><input type="text" name="auth_code" id="auth_code" maxlength="7" placeholder="●●●●●●●" /></td>
+                <td>
+                    새로운 인증번호 7자리를 입력해주시기 바랍니다.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="buttons">
+        <div>
+            <button type="submit" class="button_s1">변경하기</button>
+        </div>
+    </div>
+</form>    </div>
+</div>
+
+
+    </div>
+<script>
+$('#submitButton').click(function () {
+    $("#submitdiv").hide();
+    $('#form1').submit();
+});
+$('#reset2ndpw').click(function () {
+    if (confirm("2차 비밀번호를 초기화 하려면 등록된 이메일로 인증을 해야합니다. 계속하시겠습니까?") === true)
+    {
+        $.ajax({
+            type: "GET",
+            url: "/Member/ResetSecondPassword",
+            success: function (data) {
+                alert(data);
+            }
+    });
+    }
+});
+$('#changemaster').click(function () {
+    window.location.href = '/Member/ChangeMyCharacter';
+});
+</script>
+    <!-- //메인 컨텐츠 -->
+{% endblock%}

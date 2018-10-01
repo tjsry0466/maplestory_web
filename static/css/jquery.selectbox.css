@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+.sbHolder{
+	background-color: #fff;
+	border: solid 1px #d8d8d8;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 22px;
+	line-height: 12px;
+	position: relative;
+	width: 80px;
+	float: left;
+}
+.sbSelector{
+	display: block;
+	height: 22px;
+	left: 0;
+	line-height: 22px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 10px;
+	top: 0;
+	width: 60px;
+}
+.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
+	color: #767676;
+	outline: none;
+	text-decoration: none;
+}
+.sbToggle{
+	background: url("../Images/Board/notice/btn_select.gif") no-repeat;
+	display: block;
+	height: 22px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 22px;
+}
+.sbToggleOpen{
+	background: url("../Images/Board/notice/btn_select_active.gif") no-repeat;
+}
+.sbHolderDisabled{
+	background-color: #eee;
+	border: solid 1px #d8d8d8;
+}
+.sbHolderDisabled .sbHolder{
+	
+}
+.sbHolderDisabled .sbToggle{
+	
+}
+.sbOptions{
+	background-color: #fff;
+	border: solid 1px #d8d8d8;
+	list-style: none;
+	left: -1px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 22px;
+	width: 80px;
+	z-index: 1;
+	overflow-y: auto;
+}
+.sbOptions li{
+	padding: 0 7px;
+}
+.sbOptions a{
+	display: block;
+	outline: none;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions a:link, .sbOptions a:visited{
+	color: #aaa;
+	text-decoration: none;
+}
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus{
+	color: #525C6D;
+}
+.sbOptions li.last a{
+	border-bottom: none;
+}
+.sbOptions .sbDisabled{
+	border-bottom: dotted 1px #515151;
+	color: #999;
+	display: block;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbGroup{
+	border-bottom: dotted 1px #515151;
+	color: #EBB52D;
+	display: block;
+	font-weight: bold;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbSub{
+	padding-left: 17px;
+}

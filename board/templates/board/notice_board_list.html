@@ -1,0 +1,128 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+{% block content %}
+            <!-- //여기가 게시글 목록입니다. 개수만큼 반복 페이지당 20개 -->
+<div class="board_content_notice">
+
+        <h2 class="board_title">
+        <img src="/static/Images/board/title/ct_{{ category.slug }}.png" />
+    </h2>
+    <ul class="his_nav">
+        <li class="bu">홈</li>
+        <li class="bu">{{ category.sub }}</li>
+        <li>
+            <strong>{{ category.title }}</strong>
+        </li>
+    </ul>
+    <div class="real_content">
+        <ul class="board_list">
+            <li class="b_title">
+                <dl>
+                        <dt class="title">제목</dt>
+                                                                <dt class="regi_date">등록일</dt>
+                                            <dt class="hits">조회수</dt>
+                                    </dl>
+            </li>
+            <!-- 여기가 게시글 목록입니다. 개수만큼 반복 페이지당 20개 -->
+            {# 공지사항 #}
+                {% for top_post in top_board %}
+                                <li class="b_list notice">
+                    <dl>
+                            <dt class="title">
+
+                                    <a href="{{ top_post.get_absolute_url }}">{{ top_post.title }}</a>
+                            </dt>
+                                                                            <dd class="regi_date">{{ top_post.created|date:"Y-m-d" }}</dd>
+                                                    <dd class="hits">{{ top_post.hit_count.hits }}</dd>
+                        
+
+                    </dl>
+                </li>
+                {% endfor %}
+                {# 보드 게시물 #}
+                {% for post in board_list %}
+                <li class="b_list">
+                    <dl>
+                            <dt class="title">
+
+                                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                    <!-- 새로운 게시물일경우 N표시 -->
+                                    {% now "Y-m-d" as todays_date %}
+                                    {% if todays_date == post.created|date:"Y-m-d" %}
+                                    <img src="{% static '/Images/Board/notice/ico_n.png' %}" width="13" height="13" class="ico_n" />
+                                    {% endif %}
+                                    <!-- //새로운 게시물일경우 N표시 -->
+
+                            </dt>
+                                                                            <dd class="regi_date">{{ post.created|date:"Y-m-d" }}</dd>
+                                                    <dd class="hits">{{ post.hit_count.hits }}</dd>
+                        
+
+                    </dl>
+                </li>
+                {% endfor %}
+            <!-- //여기가 게시글 목록입니다. 개수만큼 반복 페이지당 20개 -->
+        </ul>
+        <div class="func">
+            <div class="buttons">
+                                    <a href="{% url 'board:boardnew' category.slug %}"><button class="button_s1">글쓰기</button></a>
+            </div>
+        </div>
+        
+
+<div class="pager">
+{% if is_paginated %}
+  <ul class="pager_list">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}"></a></li>
+    {% else %}
+      <li class="disabled"><span></span></li>
+    {% endif %}
+      
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active">{{ i }}</li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+      {# 마지막을 제외하고 |써줌 #}
+      {% if not forloop.last %}
+      <li class="divi"><span class="divi">|</span></li>
+      {% endif %}
+      
+    {% endfor %}
+      
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}"></a></li>
+    {% else %}
+      <li class="disabled"><span></span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</div>
+
+        <div class="finder">
+<form action="{% url 'board:list' category.slug %}" method="get" id=searchform><select class="selectbox" data-val="true" data-val-number="Int32 필드는 숫자여야 합니다." data-val-required="Int32 필드가 필요합니다." id="searchType" name="searchType"><option value="0">제목</option>
+<option value="1">작성자</option>
+</select>                <span class="sch_inp">
+                    <input id="q" name="q" type="text" value='' />
+                </span>
+                <span class="ml5"><button class="button_s1" id="button_find" type="submit" onsubmit="isempty()">검색</button></span>
+</form>        </div>
+    </div>
+</div>
+
+<!--  폼 입력값 검증 -->
+<script>
+$(document).ready(function(){
+    $('#searchform').submit(function(e){
+        if (searchform.q.value == ""){
+            alert("검색할 내용을 입력해주세요")
+            return false;
+        }    
+        return True
+    });
+});
+</script>
+            <!-- //메인 컨텐츠 -->
+{% endblock %}

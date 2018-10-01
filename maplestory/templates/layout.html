@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load socialaccount %} 
+
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    {% block head %}
+    {% endblock %}
+    
+    <meta name="description" content="빅뱅전의 옛날메이플 1.2.98 아르테일 입니다. 배율 3/1/1 하자 서버이며 최고의 안정성과 구현도를 자랑합니다. 핵 유저 없는 공정한 환경에서 하자 서버 중 가장 많은 접속자와 만나보세요." />
+    <meta name="keywords" content="maple, maplestory, artale, 메이플, 메이플스토리, 옛날메이플, 추억의메이플, 아르테일, 2d, rpg, mmorpg, 온라인게임" />
+
+    <script type="text/javascript" src="{% static 'javascript/jquery-1.7.2.js' %} "></script>
+    <script type="text/javascript" src="{% static 'javascript/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/gamestart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/jquery.selectbox-0.2.min.js' %} "></script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/fav_32.ico" />
+    <link rel="apple-touch-icon" href="{% static '/Images/index.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link href="{% static 'css/jquery.selectbox.css' %}" type="text/css" rel="stylesheet" /> 
+    <title>아르테일 - 옛날메이플 아르테일 :: Artale</title>
+</head>
+<body>
+    <div id="wrap" class="bgtop">
+        <!-- 상단 메뉴 -->
+        <header id="topMenu">
+            <!-- 로고 -->
+            <h1 class="logo">
+                <a href="/">
+                    <img src=" {% static 'Images/logo.png' %}" />
+                </a>
+            </h1>
+            <!-- //로고 -->
+            <!-- lnb -->
+            <div class="lnb">
+                <div class="nav">
+                    <nav>
+                        <ul class="depth">
+                            <!-- 새소식 -->
+                            <li class="li1">
+                                <a class="lnb01">새소식</a>
+                                <!-- 서브 메뉴 -->
+                                <ul class="news">
+                                    <li>
+                                        <a href="/board/notice" class="lnb01_s01">공지사항</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/update" class="lnb01_s02">업데이트</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/event" class="lnb01_s03">이벤트</a>
+                                    </li>
+                                </ul>
+                                <!-- //서브 메뉴 -->
+                            </li>
+                            <!-- //새소식 -->
+                            <li class="gnb_line">
+                                <img src="{% static '/Images/gnb/gnb_line_v.png' %}" />
+                            </li>
+                            <!-- 가이드 -->
+                            <li class="li2">
+                                <a class="lnb02" href="https://wiki.artale.me/"></a>
+                                <!-- 서브 메뉴 -->
+                                <ul class="guide">
+                                    <li>
+                                        <a class="lnb02_s01" href="https://wiki.artale.me/w/%EC%B4%88%EB%B3%B4%EC%9E%90%20%EA%B0%80%EC%9D%B4%EB%93%9C">초보자가이드</a>
+                                    </li>
+                                    <li>
+                                        <a class="lnb02_s02" href="https://wiki.artale.me/w/%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%B3%B4">기본정보</a>
+                                    </li>
+                                    <li>
+                                        <a class="lnb02_s03" href="https://wiki.artale.me/w/%EA%B2%8C%EC%9E%84%EC%8B%9C%EC%8A%A4%ED%85%9C">게임시스템</a>
+                                    </li>
+                                </ul>
+                                <!-- //서브 메뉴 -->
+                            </li>
+                            <!-- //가이드 -->
+                            <li class="gnb_line">
+                                <img src="{% static '/Images/gnb/gnb_line_v.png' %}" />
+                            </li>
+                            <!-- 랭킹 -->
+                            <li class="li3">
+                                <a class="lnb03">랭킹</a>
+                                <!-- 서브 메뉴 -->
+                                <ul class="ranking">
+                                    <li>
+                                        <a href="/ranking" class="lnb03_s01">개인랭킹</a>
+                                    </li>
+                                    <li>
+                                        <a class="lnb03_s02">길드랭킹</a>
+                                    </li>
+                                    <li>
+                                        <a class="lnb03_s03">명예의전당</a>
+                                    </li>
+                                </ul>
+                                <!-- //서브 메뉴 -->
+                            </li>
+                            <!-- //랭킹 -->
+                            <li class="gnb_line">
+                                <img src="{% static '/Images/gnb/gnb_line_v.png' %}" />
+                            </li>
+                            <!-- 커뮤니티 -->
+                            <li class="li4">
+                                <a class="lnb04">커뮤니티</a>
+                                <!-- 서브 메뉴 -->
+                                <ul class="community">
+                                    <li>
+                                        <a href="/board/free" class="lnb04_s01">자유게시판</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/info" class="lnb04_s02">정보게시판</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/question" class="lnb04_s03">질문게시판</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/trade" class="lnb04_s04">거래게시판</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/screenshot" class="lnb04_s05">스크린샷</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/video" class="lnb04_s06">동영상</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/fanart" class="lnb04_s07">팬아트</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/promotion" class="lnb04_s08">홍보게시판</a>
+                                    </li>
+                                </ul>
+                                <!-- //서브 메뉴 -->
+                            </li>
+                            <!-- //커뮤니티 -->
+                            <li class="gnb_line">
+                                <img src="{% static '/Images/gnb/gnb_line_v.png' %}" />
+                            </li>
+                            <!-- 지원센터 -->
+                            <li class="li5">
+                                <a class="lnb05">지원센터</a>
+                                <!-- 서브메뉴 -->
+                                <ul class="policy">
+                                    <li>
+                                        <a href="/board/faq" class="lnb05_s01">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/bugreport" class="lnb05_s02">버그리포트</a>
+                                    </li>
+                                    <li>
+                                        <a href="/board/support" class="lnb05_s03">고객문의</a>
+                                    </li>
+                                </ul>
+                                <!-- //서브메뉴 -->
+                            </li>
+                            <!-- //지원센터 -->
+                            <li class="gnb_line">
+                                <img src="{% static '/Images/gnb/gnb_line_v.png' %}" />
+                            </li>
+                            <!-- 다운로드 -->
+                            <li class="li6">
+                                <a href="/download" class="lnb06">다운로드</a>
+                            </li>
+                            <!-- //다운로드 -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- //lnb -->
+        </header>
+        <!-- //상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="content">
+            <!-- //좌측 영역 -->
+            <aside>
+                <div class="rightside">
+                    <!-- 게임 시작 -->
+                    <div class="start">
+                        <p>
+                            <a id="gameStart" class="gamestart" onclick="gamestart()" style="cursor:pointer;">게임시작</a>
+                        </p>
+                        <!--<p class="sbtn">
+                    <a href="/">게임다운로드</a>
+                    <span>|</span>
+                    <a href="/">테스트서버</a>
+                </p>-->
+                    </div>
+                    <!-- //게임 시작 -->
+
+                    <!-- 로그인 -->
+
+                    {% if user.is_authenticated %}
+                    <!-- 로그인 -->
+                    <div class="login">
+    
+            <ul class="main_char">
+                <li class="character">
+                    <img src="{% static '/Images/Main/img_no_character.png' %}" />
+                </li>
+                <li class="create_message">
+                        <span>게임에서 캐릭터 생성 후<br /><strong>대표캐릭터</strong>를 설정해주세요.</span>
+                </li>
+            </ul>
+            <ul class="after_btn">
+            <li>
+                <a href="/accounts/profile" class="btn2">마이페이지</a>
+                <a href="/" class="btn1">U-OTP</a>
+                <a href="/accounts/logout?next={{ request.path }}" class="btn3">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+                    {% else %}
+                    <!-- 로그인 -->
+                    <div class="login before">
+                        <ul class="login_con">
+                            <a href="http://skserver.gonetis.com:8000/accounts/kakao/login/?process=login&next=%2F"><img src={% static 'Images/kakao_login.png' %} width= 235px></a>
+                        </ul>
+                        {% comment %} /accounts/login/?next={{ request.path }} {% endcomment %}
+    {% comment %} <form action="http://skserver.gonetis.com:8000/accounts/kakao/login/?process=login&next=%2F" autocomplete="off" id="loginForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="rxxhZPxrrvarX4FKhvCqMz25E_9l286Q09ohuyrWzMUtlOUmYNkURTZ2fksjgHTVhj8ffJNA8INfpppIpeJghx-kPAG5qqmXjafL9tj_dQ41" />            
+        {% csrf_token %}
+        <ul class="login_con">
+                <li>
+                    <dl>
+                        <dd>
+                            <p>
+                                <input class="login_id" id="username" maxlength="24" name="username" onkeydown="if (event.keyCode == 13) document.getElementById(&#39;loginForm&#39;).submit()" placeholder="아이디" type="text" value="" />
+                            </p>
+                            <p>
+                                <input autocomplete="off" class="login_pw" id="password" maxlength="12" name="password" onkeydown="if (event.keyCode == 13) document.getElementById(&#39;loginForm&#39;).submit()" placeholder="비밀번호" type="password" />
+                            </p>
+                        </dd>
+                        <dt>
+                            <a id="login_button" onclick="document.getElementById('loginForm').submit();" onkeypress="document.getElementById('loginForm').submit();" class="login_btn" style="cursor:pointer"> </a>
+                        </dt>
+                    </dl>
+                </li>
+            </ul>
+    </form>       
+            <ul class="btn">
+            <li>
+                <a href="/accounts/signup">회원가입</a>
+            </li>
+            <li class="divi">|</li>
+            <li>
+                <a href="/accounts/FindIdPw">아이디 찾기</a>
+            </li>
+            <li class="divi">|</li>
+            <li>
+                <a href="/accounts/FindIdPw">비밀번호 찾기</a>
+            </li>
+        </ul> {% endcomment %}
+</div>
+                    {% endif %}
+                    <!-- //로그인 -->
+                    <!-- 퀵 배너-->
+                    <ul class="quick">
+                        <li class="item01">
+                            <a id="guide">
+                                <span class="blind">가이드</span>
+                            </a>
+                        </li>
+                        <li class="quick_line"></li>
+                        <li class="item02">
+                            <a id="premium">
+                                <span class="blind">프리미엄</span>
+                            </a>
+                        </li>
+                        <li class="quick_line"></li>
+                        <li class="item03">
+                            <a href="/board/support" id="inq">
+                                <span class="blind">1:1 문의</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- //퀵 배너 -->
+                    <!-- 미니 배너 -->
+                    <!--<div class="mini">
+                <a href="/" target="_blank">
+                    <img src="{% static '~/Images/banner/mini/bn_guide.png" />
+                </a>
+            </div> -->
+                    <!-- //미니 배너 -->
+                    <!-- 아르테일 공식 계정 -->
+                    <div class="social">
+                        <img alt="페이스북" src="{% static '/Images/Main/img_social_tit.png' %}" />
+                        <ul class="social_list">
+                            <li class="item03">
+                                <a id="youtube">
+                                    <span class="blind">유투브</span>
+                                </a>
+                            </li>
+                            <li class="social_line"></li>
+                            <li class="item02">
+                            <li class="item02">
+                                <a id="twitter">
+                                    <span class="blind">트위터</span>
+                                </a>
+                            </li>
+                            <li class="social_line"></li>
+                            <li class="item01">
+                                <a id="facebook">
+                                    <span class="blind">페이스북</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //아르테일 공식 계정 -->
+                    <!-- 아르테일 디스코드 -->
+                    <div class="discord">
+                        <iframe src="https://discordapp.com/widget?id=485592810121068567&theme=white" width="270" height="400" allowtransparency="true" frameborder="0"></iframe>
+                    </div>
+                    <!-- //아르테일 디스코드 -->
+                </div>
+            </aside>
+            <!-- //좌측 영역 -->
+            <!-- 메인 컨텐츠 -->
+            <div class="container">
+                <!-- 포커스 배너-->
+                <div class="focus">
+                    <div class="blank">
+                        <div class="main_logo" onclick="location.href='/'">
+                        </div>
+                    </div>
+
+                    <!-- 배너 -->
+                    <ul class="banner">
+                        <!-- 포커스 배너 리스트 -->
+
+                        <!-- //포커스 배너 리스트 -->
+                    </ul>
+                    <!-- //배너 -->
+                    <!-- 배너 버튼 -->
+                    <div class="btn_box">
+                        <p class="cnt"></p>
+                        <p class="ctl">
+                            <a class="btn_prev" href="#prev">
+                                <img src="{% static '/Images/banner/btn/btn_focus_prev.png' %}" />
+                            </a>
+                            <a class="btn_play play" href="#play">재생/정지</a>
+                            <a class="btn_next" href="#next">
+                                <img src="{% static '/Images/banner/btn/btn_focus_next.png' %}" />
+                            </a>
+                        </p>
+                    </div>
+                    <!-- //배너 버튼 -->
+                </div>
+                <!-- //포커스 배너 -->
+                {% block content %}
+                {% endblock %}
+            </div>
+            <!-- //메인 컨텐츠 -->
+            <!-- 하단 -->
+            <footer>
+                <!-- 하단 정보 -->
+                <ul class="info">
+                    <li class="link">
+                        <p>
+                            <a href="/">이용약관</a>
+                            <span>|</span>
+                            <a href="/">운영정책</a>
+                            <span>|</span>
+                            <a href="/">개인정보취급방침</a>
+                            <span>|</span>
+                            <a href="/">제휴문의</a>
+                        </p>
+                    </li>
+                    <!--<li class="unity">
+                        <a href="/" target="_blank">
+                            <img alt="아르테일" src="~/Images/Main/bi_logo.png" />
+                        </a>
+                    </li>-->
+                </ul>
+                <!-- //하단 정보 -->
+                <!-- Copyright -->
+                <ul class="copy">
+                    <li>
+                        <img alt="" src="{% static '/Images/Footer/h_copyright.png' %}" />
+                    </li>
+                </ul>
+                <!-- //Copyright -->
+            </footer>
+            <!-- //하단 -->
+        </div>
+        <!-- //컨텐츠 -->
+    </div>
+    
+
+    <iframe src="about:blank" id="gamestart" hidden="hidden" style="display:none;"></iframe>
+</body>
+</html>

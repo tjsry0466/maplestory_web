@@ -1,0 +1,327 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+{% block content %}
+<!-- 서브 컨텐츠 -->
+<section>
+    <div class="scontent">
+        <!-- 새소식 -->
+        <div class="news">
+            <p class="title">
+                    <img src="{% static '/Images/Main/h_news.png' %}" alt="새소식"/>
+
+            </p>
+            <!-- 탭 메뉴 -->
+            <ul class="news_tab">
+                <li class="selected" id="news_tab_0">
+                    <a href="#tab1">공지사항</a><span>|</span>
+                </li>
+                <li id="news_tab_1">
+                    <a href="#tab2">업데이트</a><span>|</span>
+                </li>
+                <li id="news_tab_2">
+                    <a href="#tab3">이벤트</a>
+                </li>
+            </ul>
+            <!-- //탭 메뉴 -->
+            <!-- 탭 리스트 -->
+            <ul class="news_tabcon">
+                <!-- li 스타일에 show가 붙어 있을 경우에만 출력 한다. -->
+                <li id="news_1" class="show">
+                    <article>
+                        <dl class="list_n">
+                            {% for notice in notice%}
+                            {% if forloop.first %}
+                                <dd>
+        <strong>
+                    <a href="{{ notice.get_absolute_url}}">{{ notice.title}} </a>
+
+        </strong>
+    </dd>
+                            {% else %}
+    <dd>
+                <a href="{{ notice.get_absolute_url}}">{{ notice.title}} </a>
+
+    </dd>
+                            {% endif %}
+                            {% endfor %}
+                        </dl>
+                    </article>
+                </li>
+                <li id="news_2">
+                    <article>
+                        <dl class="list_n">
+                            {% for update in update%}
+                            {% if forloop.first %}
+                                <dd>
+        <strong>
+                    <a href="{{ update.get_absolute_url}}">{{ update.title}} </a>
+
+        </strong>
+    </dd>
+                            {% else %}
+    <dd>
+                <a href="{{ update.get_absolute_url}}">{{ update.title}} </a>
+
+    </dd>
+                            {% endif %}
+                            {% endfor %}
+                        </dl>
+                    </article>
+                </li>
+                <li id="news_3">
+                    <article>
+                        <dl class="list_n">
+                            {% for event in event%}
+                            {% if forloop.first %}
+                                <dd>
+        <strong>
+                    <a href="{{ event.get_absolute_url}}">{{ event.title}} </a>
+
+        </strong>
+    </dd>
+                            {% else %}
+    <dd>
+                <a href="{{ event.get_absolute_url}}">{{ event.title}} </a>
+
+    </dd>
+                            {% endif %}
+                            {% endfor %}
+                        </dl>
+                    </article>
+                </li>
+            </ul>
+            <!-- //탭 리스트 -->
+        </div>
+        <!-- //새소식 -->
+        <!-- 베스트 정보 -->
+        <div class="best">
+            <p class="title">
+                    <img src="{% static '/Images/Main/h_best.png' %}" alt="베스트 정보"/>
+                <span>2018.02.08</span>
+            </p>
+            <!-- 베스트 게시물 배너 -->
+            <article>
+                <dl class="thumb">
+                    <dt>
+                        <a href="http://sol9.tistory.com/1">
+                            <img src="{% static '/banners/131625573279530502_m2.PNG' %}" />
+                        </a>
+                    </dt>
+                    <dd>
+                        <p class="stitle">
+                            <strong>
+                                <a href="http://sol9.tistory.com/1">마일리지란?</a>
+                            </strong>
+                        </p>
+                        <p class="txt">아르테일의 마일리지가 무엇인지 깔끔한 설명과 얻는 법을 정리해봤습니다.</p>
+                        <p class="user">
+                            <img src="{% static '/Images/Main/icon/world/ico_world_scania.png' %}" />
+                            솔구
+                        </p>
+                    </dd>
+                </dl>
+                <!-- //베스트 게시물 배너 -->
+                <!-- 베스트 게시물-->
+                <ul class="best_con">
+                    <li>
+                        <dl>
+                            <dd>
+                                <p class="stitle">
+                                    <a href="http://sol9.tistory.com/10">1.2.98의 잠재능력에 대한 모든것</a>
+                                </p>
+                                <p class="user">
+                                    <img src="{% static '/Images/Main/icon/world/ico_world_scania.png' %}" />
+                                    솔구
+                                </p>
+                            </dd>
+
+                        </dl>
+                    </li>
+                </ul>
+            </article>
+            <!-- //베스트 게시물 -->
+        </div>
+        <!-- //베스트 정보 -->
+        <!-- 지식소 -->
+        <div class="kin">
+            <article>
+                <p class="title">
+                    <img src="{% static '/Images/Main/h_kin.png' %}" alt="지식소"/>
+                </p>
+                <!-- 질문 게시판 최근 게시물 -->
+                <ul class="kin_con">
+                    <li>
+                        <dl>              
+            {% for question in question%}
+                                                            <dd>
+            <p class="stitle">
+            <a href="{{ question.get_absolute_url}}">{{ question.title}} </a>
+    </p>
+    <p class="date">
+{{ question.created|date:"Y.m.d" }}    </p>
+
+    </dd>
+                            {% endfor %}
+
+                        </dl>
+                    </li>
+                </ul>
+                <!-- //질문 게시판 최근 게시물 -->
+            </article>
+        </div>
+        <!-- //지식소 -->
+        <!-- 자유 게시판 -->
+        <div class="free">
+            <article>
+                <p class="title">
+                    <img src="{% static '/Images/Main/h_free.png' %}" alt="자유게시판"/>
+                </p>
+                <!-- 자유 게시판 최근 게시물 -->
+                <ul class="free_con">
+                    <li>
+                        <dl>
+                                  {% for free in free%}
+                                                            <dd>
+            <p class="stitle">
+            <a href="{{ free.get_absolute_url}}">{{ free.title}} </a>
+    </p>
+    <p class="date">
+{{ free.created|date:"Y.m.d" }}    </p>
+
+    </dd>
+                            {% endfor %}
+
+
+                        </dl>
+                    </li>
+                </ul>
+                <!-- //자유 게시판 최근 게시물 -->
+            </article>
+        </div>
+        <!-- //자유 게시판 -->
+        <!-- UCC -->
+        <div class="ucc">
+            <p class="title">
+                <img src="{% static '/Images/Main/h_ucc.png' %}" alt="UCC"/>
+            </p>
+            <!-- 탭 메뉴 -->
+            <ul class="ucc_tab">
+                <li class="selected">
+                    <a href="#tab1">스크린샷</a><span>|</span>
+                </li>
+                <li>
+                    <a href="#tab2">동영상</a><span>|</span>
+                </li>
+                <li>
+                    <a href="#tab3">팬아트</a>
+                </li>
+            </ul>
+            <!-- //탭 메뉴 -->
+            <!-- 탭 리스트 -->
+            <ul class="ucc_tabcon">
+                <!-- li 스타일에 show가 붙어 있을 경우에만 출력 한다. -->
+                <li class="show">
+                    <article>
+                        <dl>
+                                <dd>
+            <p class="img">
+        <a href="/Board/screenshot/220-%EC%95%84%EB%A5%B4%ED%85%8C%EC%9D%BC-%EB%9F%AC%EB%B2%84-">
+                    <img src="{% static '/imgcache/f019438bf2ae77c03a9b5c438d84d8b7d1ac3229.jpg" style="width: 240px; height: 118px;" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="/Board/screenshot/220-%EC%95%84%EB%A5%B4%ED%85%8C%EC%9D%BC-%EB%9F%AC%EB%B2%84-">
+            아르테일 러버 
+        </a>
+    </p>
+
+    </dd>
+    
+
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <dl>
+    <dd>
+            <p class="img">
+        <a href="/Board/video/29-%ED%8C%A8%EC%B9%98-%ED%9B%84-%EB%B0%B1%ED%99%94%EC%9A%94%EB%9E%80-%EA%B8%B8%EB%93%9C-%ED%98%BC%ED%85%8C%EC%9D%BC-">
+                    <img src="{% static '//img.youtube.com/vi/RlZiza18zZg/0.jpg' %}" style="width: 240px; height: 118px;" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="/Board/video/29-%ED%8C%A8%EC%B9%98-%ED%9B%84-%EB%B0%B1%ED%99%94%EC%9A%94%EB%9E%80-%EA%B8%B8%EB%93%9C-%ED%98%BC%ED%85%8C%EC%9D%BC-">
+            패치 후 백화요란 길드 혼테일 
+        </a>
+    </p>
+
+        </dd>
+
+                        </dl>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <dl>
+                                <dd>
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+    <dd>
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+    <dd class="end">
+            <p class="img">
+        <a href="#">
+                    <img src="{% static '/Images/img_no_thumbnail_ucc.png' %}" />
+
+            
+        </a>
+    </p>
+    <p class="stitle">
+        <a href="#">
+            게시물이 없습니다.
+        </a>
+    </p>
+
+    </dd>
+
+                        </dl>
+                    </article>
+                </li>
+            </ul>
+            <!-- //탭 리스트 -->
+        </div>
+        <!-- //UCC -->
+    </div>
+</section>
+<!-- //서브 컨텐츠 -->
+{% endblock %}

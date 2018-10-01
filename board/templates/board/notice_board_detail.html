@@ -1,0 +1,151 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="board_content_notice">
+    
+        <h2 class="board_title">
+        <img src="/static/Images/board/title/ct_{{board.category.slug}}.png" />
+    </h2>
+    <ul class="his_nav">
+        <li class="bu">홈</li>
+        <li class="bu">{{board.category.sub}}</li>
+        <li>
+            <strong>{{board.category.title}}</strong>
+        </li>
+    </ul>
+    <article>
+        <div class="real_content">
+            <ul class="board_view">
+                    <li class="b_title">
+                        <dl>
+                            <dt class="title">{{board.title}}</dt>
+                        </dl>
+                    </li>
+                <li class="b_title">
+                    <dl>
+                        <dt class="writer">
+                            <dl>
+                                <dt class="writer_title">작성자</dt>
+                                <dd class="writer_content">{{board.author}}</dd>
+                            </dl>
+                        </dt>
+                        <dd class="hits">
+                            <dl>
+                                <dt class="hits_title">조회수</dt>
+                                <dd class="hits_content">{{board.hit_count.hits}}</dd>
+                            </dl>
+                        </dd>
+                        <dd class="regi_date">
+                            <dl>
+                                <dt class="rd_title">작성일</dt>
+                                <dd class="rd_content">{{ board.created|date:"Y-m-d" }}</dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="contents">
+                    <!-- 여기에 내용이 들어감 -->
+                    {% autoescape off %}{{ board.content }}{% endautoescape %}
+                </li>
+                {%if board.get_previous_post %}
+                <li class="prev_post">
+                    <dl class="ml20">
+                        <dt class="arrow">
+                            <img src="{% static '/Images/board/notice/ico_up.png' %}" class="mt12" />
+                        </dt>
+                        
+                            <dd class="prev_title">
+                                <a href="{{board.get_previous_post.get_absolute_url}}" style="color:#666666;">
+                                 {{board.get_previous_post}}
+                                </a>
+                            </dd>
+                            <dd>
+                                {{board.get_previous_post.created|date:"Y.m.d" }}
+                            </dd>
+                    </dl>
+                </li>
+                {% else %}
+                <li class="prev_post">
+                    <dl class="ml20">
+                        <dt class="arrow">
+                            <img src="{% static '/Images/board/notice/ico_up.png' %}" class="mt12" />
+                        </dt>
+                        
+                            <dd class="prev_title">
+                                이전 게시물이 없습니다.
+                            </dd>
+                            <dd>
+                            </dd>
+                    </dl>
+                </li>
+                {% endif %}
+                <li class="now_post">
+                    <dl class="ml20">
+                        <dt class="arrow">
+                            <img src="{% static '/Images/board/notice/ico_now.png' %}" class="mt12" />
+                        </dt>
+                        <dd class="now_title">
+                            {{board.title}}
+                        </dd>
+                        <dd>
+                            {{ board.created|date:"Y.m.d" }}
+                        </dd>
+                    </dl>
+                </li>
+                {%if board.get_next_post %}
+                <li class="next_post">
+                    <dl class="ml20">
+                        <dt class="arrow">
+                            <img src="{% static '/Images/board/notice/ico_down.png' %}" class="mt12" />
+                        </dt>
+                        
+                            <dd class="prev_title">
+                                <a href="{{board.get_next_post.get_absolute_url}}" style="color:#666666;">
+                                    {{board.get_next_post}}
+                                   </a>
+                            </dd>
+                            <dd>
+                                {{board.get_next_post.created|date:"Y.m.d" }}
+                            </dd>
+                    </dl>
+                </li>
+                {% else %}
+                <li class="next_post">
+                    <dl class="ml20">
+                        <dt class="arrow">
+                            <img src="{% static '/Images/board/notice/ico_down.png' %}" class="mt12" />
+                        </dt>
+                        
+                            <dd class="prev_title">
+                                다음 게시물이 없습니다.
+                            </dd>
+                    </dl>
+                </li>
+                {% endif %}
+            </ul>
+            <div style="width:765px;">
+                <div style="float:right;">
+                        {% if request.user == board.author%}
+                        <a href="{% url 'board:boardupdate' board.id %}"><button class="button_s1">수정</button></a>
+                        <a onclick="checkDel()" style="cursor:pointer;"><button class="button_s1">삭제</button></a>
+                        {% endif %}
+                        <a href="/board/{{board.category.slug}}"><button class="button_s1">목록</button></a>
+                </div>
+            </div>
+
+        </div>
+    </article>
+</div>
+            <script type="text/javascript">
+                function checkDel() {
+                    var check = confirm("정말 게시글을 삭제하시겠습니까?");
+                    if (check) {
+                        location.href = "{% url 'board:boarddelete' board.pk %}";
+                    }
+                    return false;
+                }
+            </script>
+            <!-- //메인 컨텐츠 -->
+            <!-- 추천 ajax-->
+{% endblock %}

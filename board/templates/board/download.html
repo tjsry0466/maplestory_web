@@ -1,0 +1,117 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+{% block content %}
+<article>
+    <div class="download">
+        <h2 class="title">
+            <img src="{% static '/Images/Board/title/ct_download.png' %}" alt="다운로드"/>
+        </h2>
+        <ul class="his_nav">
+            <li class="bu">홈</li>
+            <li>
+                <strong>다운로드</strong>
+            </li>
+        </ul>
+        <div class="download_content">
+            <div class="real_content">
+                <ul class="download_list">
+                            <li class="first">
+                                <a href="https://drive.google.com/file/d/1n09eTbGpJ5qVsSjIKAVS9pcH03opP-9l/view">
+                                    <img src="{% static '/Images/Download/btn_down.png' %}" alt="클라이언트 자동설치 (권장)"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://drive.google.com/file/d/1n09eTbGpJ5qVsSjIKAVS9pcH03opP-9l/view">
+                                    <img src="{% static '/Images/Download/btn_mirror_down.png' %}" alt="클라이언트 수동설치" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://drive.google.com/file/d/1n09eTbGpJ5qVsSjIKAVS9pcH03opP-9l/view">
+                                    <img src="{% static '/Images/Download/btn_torrent_down.png' %}" alt="클라이언트 토렌트 수동설치" />
+                                </a>
+                            </li>
+
+                </ul>
+                <dl class="recommend_check">
+                    <dt><strong>시스템 권장사양</strong></dt>
+                    <dd>
+                        <table border="0" cellspacing="0" class="tboard_check">
+                            <colgroup>
+                                <col width="127">
+                                <col width="319">
+                                <col width="319">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">항목</th>
+                                    <th scope="col">최소사양</th>
+                                    <th scope="col">권장사양</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">운영체제</td>
+                                    <td>Windows XP</td>
+                                    <td>Windows 7</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">CPU</td>
+                                    <td>Pentium 4급</td>
+                                    <td>Pentium Dual Core급 이상</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">RAMP</td>
+                                    <td>2GB</td>
+                                    <td>4GB 이상</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">하드디스크</td>
+                                    <td>여유공간 4GB이상</td>
+                                    <td>여유공간 4GB이상</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">그래픽카드</td>
+                                    <td>Geforce FX5000급</td>
+                                    <td>Geforce FX5600급 / ATI Radeon 9600이상</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">사운드카드</td>
+                                    <td>DirectX호환 사운드카드</td>
+                                    <td>DirectX호환 사운드카드</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>※ 2014년 04월 08일 이후 Window XP 보안업데이트가 종료되어 보안에 취약할 수 있습니다. PC 보안을 위해 상위 버전으로 업그레이드 후 이용 부탁 드립니다.
+                        <br>※ 클라이언트의 원활한 실행을 위해 9.0버전 이상의 DirectX 설치가 필요합니다.
+                    </dd>
+                </dl>
+                <dl class="driver_download">
+                    <dt><strong>드라이버 다운로드</strong></dt>
+                    <dd>
+                        <ul class="driver_list">
+                            <li>
+                                <a href="http://www.microsoft.com/ko-kr/download/details.aspx?id=35" target="_blank">
+                                    <img src="{% static '/Images/Download/btn_install_directX.png' %}" width="70" height="70" alt="DirectX 최신버전 업데이트하기" /><br>DirectX 최신버전 업데이트
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.nvidia.co.kr/Download/Find.aspx?lang=kr" target="_blank">
+                                    <img src="{% static '/Images/Download/btn_install_nvidia.png' %}" width="70" height="70" alt="NVIDIA 그래픽 드라이버 다운로드하기" /><br>NVIDIA 그래픽 드라이버 다운로드
+                                </a>
+                            </li>
+                            <li class="last">
+                                <a href="http://support.amd.com/ko-kr" target="_blank">
+                                    <img src="{% static '/Images/Download/btn_install_ati.png' %}" width="70" height="70" alt="ATI 그래픽 드라이버 다운로드하기" /><br>ATI 그래픽 드라이버 다운로드
+                                </a>
+                            </li>
+                        </ul>
+                        <br>※ 다이렉트X 설치 후에는 컴퓨터 리부팅이 필요합니다.
+                        <br>※ 반드시 윈도우 운영체제와 그래픽카드 종류에 맞는 드라이버를 설치해 주세요.
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</article>
+            
+{% endblock%}

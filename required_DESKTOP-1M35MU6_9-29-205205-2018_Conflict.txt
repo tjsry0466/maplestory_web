@@ -1,0 +1,5 @@
+django-model-utils
+django-hitcount
+django-slugger
+django_summernote==0.8.10.0
+django-debug-toolbar

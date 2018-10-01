@@ -1,0 +1,60 @@
+{% extends "accounts/layout.html" %}
+
+{% block content %}
+
+<div class="register">
+        <h2 class="title">
+            <img src="/Images/Board/title/ct_register.png" />
+        </h2>
+        <ul class="his_nav">
+            <li class="bu">홈</li>
+            <li>
+                <strong>회원가입</strong>
+            </li>
+        </ul>
+
+    <form action="{% url 'signup' %}" id="form1" method="post">
+        {% csrf_token %}        
+        <div class="register_content">
+                <table border="0" cellspacing="0" class="register_table">
+                    <thead>
+                        <colgroup>
+                            <col width="87">
+                            <col width="200">
+                            <col width="70">
+                        </colgroup>
+                    </thead>
+                    <tbody>
+                        {{signupform.as_table}}
+                        {{profileform.as_table}}
+                        <!-- <tr>
+                            <th>자동 가입 방지</th>
+                            <td>
+                                <img src="/Member/Captcha" /><br><br>
+                                <input data-val="true" data-val-required="자동 가입 방지 문자를 입력하세요" id="Captcha" name="Captcha" type="text" value="" />
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <th>추천인 캐릭터</th>
+                        <td>
+                            <strong></strong>
+                        </td>
+                    </tr> -->
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="register_buttons" id="register_buttons">
+                <div>
+                    <button class="button_s3" id="submitButton">확인</button>
+                    <a href="/"><button class="button_s3">취소</button></a>
+                </div>
+            </div>
+    </form></div>
+    
+                </div>
+                <!-- //메인 컨텐츠 -->
+    
+
+{% endblock %}

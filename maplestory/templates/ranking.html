@@ -1,0 +1,542 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+
+{% block head%}
+<script type="text/javascript" src="/Scripts/ranking.js"></script>
+{% endblock%}
+
+{% block content %}
+    <div class="ranking">
+    <h2 class="ranking_title">
+        <img src=" {% static '/Images/board/title/ct_user_rank.png' %}"  />
+    </h2>
+    <ul class="his_nav">
+        <li class="bu">홈</li>
+        <li class="bu">랭킹</li>
+        <li>
+            <strong>개인랭킹</strong>
+        </li>
+    </ul>
+    <div class="ranking_list">
+<form action="/Ranking" method="get">            <div class="search_option">
+                <div class="first">
+                    <select id="job_class" name="job_class" class="job_class">
+                        <option value="-1">---</option>
+                        <option value="0">초보자</option>
+                        <option value="1">전사</option>
+                        <option value="2">마법사</option>
+                        <option value="3">궁수</option>
+                        <option value="4">도적</option>
+                        <option value="5">해적</option>
+                        <option value="10">기사단</option>
+                        <option value="21">아란</option>
+                        <option value="22">에반</option>
+                    </select>
+                </div>
+                <div class="second">
+                    <select id="jobtype" name="jobtype" class="sub_job">
+                        <option value="-999">--</option>
+                    </select>
+                </div>
+                <span>캐릭터의 레벨, 경험치를 기준으로 하며 결과가 같을 경우 달성한 시간순으로 순위가 결정됩니다.</span>
+            </div>
+</form>        <div class="ranking_list_content">
+            <ul>
+                <li class="ranking_list_title">
+                    <dl>
+                        <dt class="rank">
+                            순위
+                        </dt>
+                        <dd class="character_info">
+                            캐릭터정보
+                        </dd>
+                        <dd class="level">
+                            레벨/경험치
+                        </dd>
+                        <dd class="popular">
+                            인기도
+                        </dd>
+                        <dd class="guild">
+                            길드
+                        </dd>
+                    </dl>
+                </li>
+                <!-- 여기서 부터 10개씩 랭킹 출력 -->
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                                    <img src=" {% static '/Images/Ranking/gold.png' %}" alt="1등" />
+
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/11wZepAgdEAF4wWR3Hpsgyztd6fAUapNd8ieixCC41266xfsj1JPoDP9Yrtgm8CyGB9DuEaE4DMgPx3uswV.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">x끼룩끼룩x</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            도적/섀도어
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            200 / 0
+                        </dd>
+                        <dd class="popular">
+                            102
+                        </dd>
+                        <dd class="guild">
+                            Twilight
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                                    <img src=" {% static '/Images/Ranking/silver.png' %}" alt="2등" />
+
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/sRnZzrdM9FaPCBPcQEgyR92woDbBJHy4jp3NLokFQGce7Tq1ekUcg8txmK22bTKwTfc8C6D425s9ptJBgvNkDZCr6AuDDwK2F.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">bebe</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            도적/나이트로드
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            200 / 0
+                        </dd>
+                        <dd class="popular">
+                            93
+                        </dd>
+                        <dd class="guild">
+                            백화요란
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                                    <img src=" {% static '/Images/Ranking/bronze.png' %}" alt="3등" />
+
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/4FCtMizkAKb39t8RWVxmedgoEV11K8z9xDCgpgeKrhtSBLufwfUthtEpjmqcrFCbSkcJAcBLA7yhxF24b7vZhmeGmBXmv21gVR8Cs9u9rHsmrCaPKnhJbhEtsFAUo.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">아이유</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            궁수/신궁
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            200 / 0
+                        </dd>
+                        <dd class="popular">
+                            95
+                        </dd>
+                        <dd class="guild">
+                            BestTeam
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            4
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/E3A3oVCC6vXUptNjgdSHhrfMmrdxXMqoUU7vhhte3EU8s4u2UbfTw2USbAJXS51Np1yeRUJedyso2JuwSMafGMuDHx8uC7VwP6vXZ83vgJV1ZSw.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">구름별</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            마법사/비숍
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            200 / 0
+                        </dd>
+                        <dd class="popular">
+                            62
+                        </dd>
+                        <dd class="guild">
+                            흑화요란
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            5
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/uc8NJ41WCBh4uP2pTdVvhZaWAJ1LxqM35U9WVJdDWrSon79X7JxChBb7qT5hMopyQSyo6dpP5BzMF4gEWt69CsvevVc7nhjef.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">이밝음</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            궁수/보우마스터
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            200 / 0
+                        </dd>
+                        <dd class="popular">
+                            1088
+                        </dd>
+                        <dd class="guild">
+                            백화요란
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            6
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/1L3KcYHqvWD1XakPAx4BuNdas9F3SfQDSukMxLHqhtfYJtWSmkFn9NoUtMQfMu3jmneYj5dM1VZKemL9xbP5yFpXsuikCP8aNGE3JjRpKTcL52VR6ibvYmhq24N6qnziNAuqZ8yJcYdAy6s4nTXRWtNGn8Tkqu1.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">아인</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            전사/히어로
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            197 / 497707720
+                        </dd>
+                        <dd class="popular">
+                            363
+                        </dd>
+                        <dd class="guild">
+                            백화요란
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            7
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/m5rAHjnZr2Ki4vFH6zbVikdzoa6skyAS9gjZy2RikzyoCME3DyfpGw4QnTmvBgo9a8k7zmvA819F4jR1pweFaUxDJjC2Q4mpbsBpAVXJ8KX1Tr4nmm36pfL2Y9K4usdydW8L8GWS2j.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">코카콜라</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            마법사/비숍
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            194 / 719269935
+                        </dd>
+                        <dd class="popular">
+                            34
+                        </dd>
+                        <dd class="guild">
+                            BestTeam
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            8
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/6khF2NUTsfEedcTfZgm3pFkV76QtEvPWa9bxj2BHngNbuJL1ZWsE4sco1jq4UN6j8wCmaTgEakg3MCsjaDAfCwsf1rZBoXu4kAE692PrywPU7rdNzFwde9R9hS1JTmwf892MRn71e3RJVwAnPQxCHfXyagb2yAo.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">제네</strong>
+                                                    <!-- 랭킹이 동일함 -->
+        <span class="rk dr">
+            <span class="blind">유지</span>
+        </span>
+        <!-- //랭킹이 동일함 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            마법사/비숍
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            193 / 830363517
+                        </dd>
+                        <dd class="popular">
+                            173
+                        </dd>
+                        <dd class="guild">
+                            백화요란
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            9
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/6RjkMFQu42vysgNVMg1o9Y1rmQxHtM6MZq3B77rNo2dipPcYLiFqiGcRUNEkU6HZ9eAR8hyPjGnyZXTvFUdf9S2rM2vpZ32WXbzyqD2XdNMzUo8cCZugU9RcnMrKKskqgJURosiE3LcAffCnzUMDX23AFEFfyKV.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">빛결</strong>
+                                                    <!-- 랭킹이 상승했을때 -->
+        <span class="rk up">
+            <span class="blind">상승</span>
+        </span>
+        <span class="s_up">5</span>
+        <!-- //랭킹이 상승했을때 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            영웅/에반
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            192 / 944810827
+                        </dd>
+                        <dd class="popular">
+                            52
+                        </dd>
+                        <dd class="guild">
+                            Twilight
+                        </dd>
+                    </dl>
+                </li>
+                <li class="ranking_list_index">
+                    <dl>
+                        <dt class="rank">
+                            10
+                        </dt>
+                        <dd class="character_info">
+                            <dl>
+                                <dt class="character">
+                                    <img src="https://avatar-storage.artale.me/1CucnDaR8f9WvZktXbm6T93gigSR6iEymCGJ55Y5kP8FYB3Q1q8NkxDmpgmYtiSa53EdoV.png" alt="Avatar" />
+                                </dt>
+                                <dd class="info">
+                                    <ul class="info_content">
+                                        <li class="name">
+                                            <!-- 월드 아이콘 -->
+                                            <img src=" {% static '/Images/Main/icon/world/ico_world_scania.png' %}" width="13" height="12" alt="아르테일" class="world_icon" />
+                                            <strong class="character_name">패닉스</strong>
+                                                    <!-- 랭킹이 하락했을때 -->
+        <span class="rk dw">
+            <span class="blind">하락</span>
+        </span>
+        <span class="s_dw">1</span>
+        <!-- //랭킹이 하락했을때 -->
+
+                                        </li>
+                                        <li class="job_name">
+                                            전사/다크나이트
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dd class="level">
+                            192 / 505538228
+                        </dd>
+                        <dd class="popular">
+                            30
+                        </dd>
+                        <dd class="guild">
+                            연지곤지
+                        </dd>
+                    </dl>
+                </li>
+                <!-- //여기서 부터 10개씩 랭킹 출력 -->
+            </ul>
+        </div>
+    </div>
+    <div class="ranking_buttons">
+        <div>
+                            <a href="/Ranking/11?jobtype=-999&amp;job_class=-1"><button class="button_s1">다음</button></a>
+            
+            
+        </div>
+    </div>
+<form action="/Ranking" method="get"><input data-val="true" data-val-number="Int32 필드는 숫자여야 합니다." data-val-required="Int32 필드가 필요합니다." id="jobtype" name="jobtype" type="hidden" value="-999" /><input id="job_class" name="job_class" type="hidden" value="-1" />    <div class="finder_wrap">
+        <div class="finder">
+            <select class="selectbox" name="searchtype" id="searchtype">
+                <option value="0">캐릭터</option>
+                <option value="1">순위</option>
+            </select>
+            <span class="sch_inp">
+                <input type="text" value="" name="keyword" id="keyword" />
+            </span>
+            <span class="ml5"><button class="button_s1" id="button_find" type="submit">검색</button></span>
+        </div>
+    </div>
+</form>    
+</div>
+
+
+            </div>
+            <!-- //메인 컨텐츠 -->
+    
+    <script type="text/javascript">
+
+    $("#job_class").val('-1');
+    $(".sub_job").html(HtmlDrawJobSelectBox(-1));
+    $(".sub_job").val('-999');
+    $("#searchtype").val('-1');
+    $("#job_class").selectbox();
+    $(".sub_job").selectbox();
+    $("#keyword").val('');
+
+    $("#job_class").change(function () {
+        var val = parseInt($(this).val());
+        var res = HtmlDrawJobSelectBox(val);
+        $(".sub_job").html(res);
+        $(".sub_job").selectbox("detach");
+        $(".sub_job").selectbox("attach");
+    });
+    $(".sub_job").change(function () {
+        var vae = $(this).val();
+        if ('--' !== vae)
+        {
+            $(this).closest('form').submit();
+        }
+        else
+        {
+            return false;
+        }
+    });
+    </script>
+
+
+    <iframe src="about:blank" id="gamestart" hidden="hidden" style="display:none;"></iframe>
+{% endblock %}

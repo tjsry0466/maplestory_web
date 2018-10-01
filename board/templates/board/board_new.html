@@ -1,0 +1,42 @@
+{% extends 'board/layout.html' %}
+{% load static %}
+{% block head%}
+
+{% endblock %}
+
+{% block content %}
+<div class="board_content write_skin">
+    
+        <h2 class="board_title">
+        <img src="/static/Images/board/title/ct_{{ category.slug }}.png" />
+    </h2>
+        <ul class="his_nav">
+    <li class="bu">홈</li>
+    <li class="bu">{{category.sub}}</li>
+    <li>
+        <strong>{{category.title}}</strong>
+    </li>
+    </ul>
+        <div class="real_content">
+    <form action="{% url 'board:boardnew' category.slug %}" id="tx_editor_form" method="post" name="tx_editor_form"><input name="__RequestVerificationToken" type="hidden" value="Lr3LBwup7DKsiI0uvzquewzn12zUe6H2DEaf2ep7u9x5Iq-ZO64NpYw-y4roQ8MJQPNGIjpP-LXE7Wx2vUutPuo5kj_RouLPwz5ERJBlMwY1" /><input data-val="true" data-val-number="ArticleId 필드는 숫자여야 합니다." data-val-required="ArticleId 필드가 필요합니다." id="ArticleId" name="ArticleId" type="hidden" value="0" /><input data-val="true" data-val-required="Board 필드가 필요합니다." id="Board" name="Board" type="hidden" value="commu" />            <div class="board_write">
+            {% csrf_token %}            
+                     <div class="title">
+                        <input class="input_title" data-val="true" data-val-length="글 제목은 2자 이상, 200자 이하여야 합니다." data-val-length-max="200" data-val-length-min="2" data-val-required="글 제목이 입력되지 않았습니다." id="title" name="title" placeholder="게시물 제목을 입력하세요." type="text" value="" />
+                    </div>
+                    <div id="editorTd">
+                            {{ form.content}}
+                    </div>
+                    <textarea class="text_area" cols="20" data-val="true" data-val-required="글 내용이 입력되지 않았습니다." hidden="hidden" id="editor_data" name="Content" rows="2">
+    </textarea>
+                    <textarea class="text_area" cols="20" hidden="hidden" id="editor_attachment" name="Attachments" rows="2">
+    </textarea>
+                </div>
+                <div class="buttons">
+                    <div>
+                        <a href="javascript:history.back(-1)"><button class="button_s1">취소</button></a>
+                        <button id="save" class="button_s1">확인</button>
+                    </div>
+                </div>
+    </form>    </div>
+    </div>
+{% endblock %}

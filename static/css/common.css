@@ -1,0 +1,12 @@
+﻿@charset "utf-8";
+
+html, body{min-width:1000px;}
+html, body, a, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, table, th, td, form, fieldset, legend, input, textarea, button, select, span{margin:0;padding:0;}
+body, table{font-family:'돋움', Dotum;font-size:12px;color:#6b6f83;line-height:18px;}
+input, textarea, select{font-family:'돋움', Dotum;}
+table{border-spacing:0;border-collapse:collapse;}
+img{vertical-align:top;}
+img, fieldset{border:0;}
+button{overflow:visible;cursor:pointer;}
+a, a:hover, a:active, a:focus{text-decoration:none;}
+/*ul, ol, li{list-style:none;}*/
